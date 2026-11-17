@@ -1,0 +1,26 @@
+
+
+
+To Build :
+----------
+
+cd ~/svg-uat/svg-uid-admin-service/admin
+
+mvn clean install -pl admin-service -am -DskipTests -Dgpg.skip=true 2>&1 | tee ~/svg-uat/admin-build.log
+
+ls -lh admin-service/target/admin-service-*.jar
+
+
+
+Build Image : docker build -t apwrd2/svg-uid-admin-service:uat-17112026-1 .
+-------------
+
+
+echo $JAVA_HOME
+mvn -version | grep 'Java version'
+
+
+
+export JAVA_HOME=/usr/lib/jvm/jdk-21.0.10-oracle-x64
+export PATH=$JAVA_HOME/bin:$PATH
+mvn -version | grep 'Java version'
